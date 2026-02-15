@@ -15,74 +15,186 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #2d3748;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background blobs */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 300px;
+            height: 300px;
+            background: #ff6b9d;
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: #feca57;
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+        }
+
+        .blob-3 {
+            width: 250px;
+            height: 250px;
+            background: #48dbfb;
+            top: 50%;
+            right: 10%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
             overflow: hidden;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
         }
 
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px 30px;
+            padding: 60px 40px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
         }
 
         .app-icon {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             background: white;
-            border-radius: 22px;
-            margin: 0 auto 20px;
+            border-radius: 30px;
+            margin: 0 auto 25px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            font-size: 60px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         h1 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .subtitle {
-            font-size: 16px;
-            opacity: 0.9;
+            font-size: 18px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
         }
 
         .lang-switch {
-            margin-top: 15px;
-            font-size: 14px;
+            margin-top: 20px;
+            font-size: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .lang-switch a {
             color: white;
             text-decoration: none;
-            opacity: 0.8;
+            opacity: 0.9;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
         }
 
         .lang-switch a:hover {
             opacity: 1;
-            text-decoration: underline;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
         }
 
         .content {
-            padding: 40px 30px;
+            padding: 50px 40px;
         }
 
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .section:last-child {
@@ -90,35 +202,46 @@
         }
 
         h2 {
-            font-size: 24px;
-            font-weight: 600;
-            color: #667eea;
-            margin-bottom: 15px;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: attr(data-emoji);
+            font-size: 32px;
+            -webkit-text-fill-color: initial;
         }
 
         h3 {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600;
-            color: #333;
-            margin: 20px 0 10px;
+            color: #4a5568;
+            margin: 25px 0 15px;
         }
 
         p {
             margin-bottom: 15px;
-            color: #555;
+            color: #4a5568;
+            font-size: 16px;
         }
 
         ul, ol {
-            margin-left: 20px;
-            margin-bottom: 15px;
+            margin-left: 25px;
+            margin-bottom: 20px;
         }
 
         li {
-            margin-bottom: 8px;
-            color: #555;
+            margin-bottom: 10px;
+            color: #4a5568;
+            font-size: 16px;
         }
 
         .feature-list {
@@ -127,28 +250,64 @@
         }
 
         .feature-list li {
-            padding-left: 30px;
+            padding: 15px 20px 15px 55px;
             position: relative;
+            background: linear-gradient(135deg, #f6f8fb 0%, #f1f4f9 100%);
+            border-radius: 15px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-list li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
         }
 
         .feature-list li:before {
             content: "✨";
             position: absolute;
-            left: 0;
+            left: 20px;
+            font-size: 24px;
+            animation: sparkle 2s ease-in-out infinite;
         }
 
-        .contact-box {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
+        @keyframes sparkle {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                transform: scale(1.2) rotate(180deg);
+            }
+        }
+
+        .jelly-box {
+            background: linear-gradient(135deg, #f6f8fb 0%, #f1f4f9 100%);
+            border-radius: 20px;
+            padding: 25px;
             margin-top: 20px;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .jelly-box:hover {
+            transform: scale(1.02);
+            border-color: rgba(102, 126, 234, 0.3);
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .contact-item:last-child {
@@ -156,58 +315,86 @@
         }
 
         .contact-icon {
-            font-size: 24px;
+            font-size: 28px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            flex-shrink: 0;
         }
 
         a {
             color: #667eea;
             text-decoration: none;
-            word-break: break-all;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         a:hover {
+            color: #764ba2;
             text-decoration: underline;
         }
 
         .faq-item {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
             margin-bottom: 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(102, 126, 234, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .faq-question {
             font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
+            color: #2d3748;
+            margin-bottom: 12px;
+            font-size: 17px;
         }
 
         .faq-answer {
-            color: #555;
+            color: #4a5568;
+            line-height: 1.7;
         }
 
         .footer {
-            background: #f8f9fa;
-            padding: 30px;
+            background: linear-gradient(135deg, #f6f8fb 0%, #f1f4f9 100%);
+            padding: 40px;
             text-align: center;
-            color: #666;
-            font-size: 14px;
+            color: #718096;
+            font-size: 15px;
+            border-radius: 30px 30px 0 0;
+        }
+
+        .footer p {
+            color: #718096;
+            margin-bottom: 10px;
         }
 
         .button {
             display: inline-block;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 12px 30px;
+            padding: 14px 35px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 10px;
-            transition: transform 0.2s;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
 
         .button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
             text-decoration: none;
         }
 
@@ -217,197 +404,186 @@
             }
 
             .header {
-                padding: 30px 20px;
+                padding: 40px 25px;
             }
 
             h1 {
-                font-size: 26px;
+                font-size: 32px;
             }
 
             .content {
-                padding: 30px 20px;
+                padding: 35px 25px;
             }
 
             h2 {
-                font-size: 20px;
+                font-size: 24px;
+            }
+
+            .app-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
     <div class="container">
-        <div class="header">
-            <div class="app-icon">✨</div>
-            <h1>Smart Planner</h1>
-            <p class="subtitle">AI-Powered Calendar & Task Management</p>
-            <div class="lang-switch">
-                English | <a href="support-zh.html">简体中文</a>
-            </div>
-        </div>
-
-        <div class="content">
-            <!-- About Section -->
-            <div class="section">
-                <h2>📱 About Smart Planner</h2>
-                <p>Smart Planner is an AI-powered productivity app that helps you organize your life effortlessly. Simply type your tasks in natural language, and our AI will automatically create calendar events and reminders for you.</p>
-                
-                <ul class="feature-list">
-                    <li>Natural language input - just type as you think</li>
-                    <li>AI automatically distinguishes events from tasks</li>
-                    <li>Extracts time, location, and priority information</li>
-                    <li>Syncs with Apple Calendar and Reminders</li>
-                    <li>Multiple tasks in one input</li>
-                </ul>
-            </div>
-
-            <!-- Getting Started -->
-            <div class="section">
-                <h2>🚀 Getting Started</h2>
-                
-                <h3>1. Grant Permissions</h3>
-                <p>Smart Planner requires access to your Calendar and Reminders to create events and tasks. We only create content when you explicitly request it and never read or share your personal information.</p>
-                
-                <h3>2. Start Typing</h3>
-                <p>Simply type your tasks naturally, for example:</p>
-                <ul>
-                    <li>"Meeting tomorrow at 3pm, submit report by Friday, buy milk"</li>
-                    <li>"Gym 3 times next week, dentist appointment Wednesday"</li>
-                    <li>"Important: Submit application tomorrow, buy groceries"</li>
-                </ul>
-                
-                <h3>3. Review & Save</h3>
-                <p>AI will parse your input and show you the events and tasks. Review them, select calendars/lists, and tap Save!</p>
-            </div>
-
-            <!-- FAQ Section -->
-            <div class="section">
-                <h2>❓ Frequently Asked Questions</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Q: Why does Smart Planner need Calendar and Reminders access?</div>
-                    <div class="faq-answer">A: Smart Planner creates events in your Apple Calendar and tasks in your Reminders app. Without these permissions, the app cannot function. We respect your privacy and only create content when you explicitly request it.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: How many free AI parses do I get?</div>
-                    <div class="faq-answer">A: Free users get 10 AI parses per month. This resets on the 1st of each month. Upgrade to Premium for unlimited parsing.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: What languages are supported?</div>
-                    <div class="faq-answer">A: Smart Planner currently supports English and Simplified Chinese (简体中文). The app automatically detects your system language.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: Can I input multiple tasks at once?</div>
-                    <div class="faq-answer">A: Yes! That's one of Smart Planner's key features. You can input multiple events and tasks in a single sentence, separated by commas or natural breaks.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: How do I manage my subscription?</div>
-                    <div class="faq-answer">A: Go to Settings → Subscription Management in the app, or manage it through your Apple ID settings: Settings → [Your Name] → Subscriptions.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: How do I cancel my subscription?</div>
-                    <div class="faq-answer">A: Open iPhone Settings → [Your Name] → Subscriptions → Smart Planner → Cancel Subscription. You'll retain access until the end of your billing period.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Q: Is my data private and secure?</div>
-                    <div class="faq-answer">A: Absolutely. We only process your input to create calendar events and reminders. We don't store, read, or share your personal calendar data. All processing happens securely.</div>
+        <div class="card">
+            <div class="header">
+                <div class="app-icon">✨</div>
+                <h1>Smart Planner</h1>
+                <p class="subtitle">AI-Powered Calendar & Task Management</p>
+                <div class="lang-switch">
+                    English | <a href="support-zh.html">简体中文</a>
                 </div>
             </div>
 
-            <!-- Troubleshooting -->
-            <div class="section">
-                <h2>🔧 Troubleshooting</h2>
-                
-                <h3>App not creating events or reminders?</h3>
-                <ol>
-                    <li>Check that you've granted Calendar and Reminders permissions</li>
-                    <li>Go to iPhone Settings → Privacy & Security → Calendars → Enable Smart Planner</li>
-                    <li>Go to iPhone Settings → Privacy & Security → Reminders → Enable Smart Planner</li>
-                    <li>Restart the app</li>
-                </ol>
-
-                <h3>AI parsing not working?</h3>
-                <ol>
-                    <li>Check your internet connection</li>
-                    <li>Verify you haven't exceeded your monthly limit (free users: 10 parses/month)</li>
-                    <li>Try rephrasing your input more clearly</li>
-                </ol>
-
-                <h3>Language not displaying correctly?</h3>
-                <ol>
-                    <li>Go to Settings in the app</li>
-                    <li>Select Language → Choose your preferred language</li>
-                    <li>Restart the app for changes to take effect</li>
-                </ol>
-            </div>
-
-            <!-- Contact Section -->
-            <div class="section">
-                <h2>📧 Contact & Support</h2>
-                <p>Need help? Have feedback or suggestions? We'd love to hear from you!</p>
-                
-                <div class="contact-box">
-                    <div class="contact-item">
-                        <span class="contact-icon">✉️</span>
-                        <div>
-                            <strong>Email Support:</strong><br>
-                            <a href="mailto:cray.huang@gmail.com">cray.huang@gmail.com</a>
-                        </div>
-                    </div>
+            <div class="content">
+                <!-- About Section -->
+                <div class="section">
+                    <h2 data-emoji="📱">About Smart Planner</h2>
+                    <p>Smart Planner is an AI-powered productivity app that helps you organize your life effortlessly. Simply type your tasks in natural language, and our AI will automatically create calendar events and reminders for you.</p>
                     
-                    <div class="contact-item">
-                        <span class="contact-icon">🐛</span>
-                        <div>
-                            <strong>Report a Bug:</strong><br>
-                            <a href="mailto:cray.huang@gmail.com?subject=Smart%20Planner%20Bug%20Report">Send Bug Report</a>
-                        </div>
-                    </div>
+                    <ul class="feature-list">
+                        <li>Natural language input - just type as you think</li>
+                        <li>AI automatically distinguishes events from tasks</li>
+                        <li>Extracts time, location, and priority information</li>
+                        <li>Syncs with Apple Calendar and Reminders</li>
+                        <li>Multiple tasks in one input</li>
+                    </ul>
+                </div>
+
+                <!-- Getting Started -->
+                <div class="section">
+                    <h2 data-emoji="🚀">Getting Started</h2>
                     
-                    <div class="contact-item">
-                        <span class="contact-icon">💡</span>
-                        <div>
-                            <strong>Feature Request:</strong><br>
-                            <a href="mailto:cray.huang@gmail.com?subject=Smart%20Planner%20Feature%20Request">Suggest a Feature</a>
-                        </div>
+                    <h3>1. Grant Permissions</h3>
+                    <p>Smart Planner requires access to your Calendar and Reminders to create events and tasks. We only create content when you explicitly request it and never read or share your personal information.</p>
+                    
+                    <h3>2. Start Typing</h3>
+                    <p>Simply type your tasks naturally, for example:</p>
+                    <ul>
+                        <li>"Meeting tomorrow at 3pm, submit report by Friday, buy milk"</li>
+                        <li>"Gym 3 times next week, dentist appointment Wednesday"</li>
+                        <li>"Important: Submit application tomorrow, buy groceries"</li>
+                    </ul>
+                    
+                    <h3>3. Review & Save</h3>
+                    <p>AI will parse your input and show you the events and tasks. Review them, select calendars/lists, and tap Save!</p>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="section">
+                    <h2 data-emoji="❓">Frequently Asked Questions</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Why does Smart Planner need Calendar and Reminders access?</div>
+                        <div class="faq-answer">A: Smart Planner creates events in your Apple Calendar and tasks in your Reminders app. Without these permissions, the app cannot function. We respect your privacy and only create content when you explicitly request it.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Q: How many free AI parses do I get?</div>
+                        <div class="faq-answer">A: Free users get 10 AI parses per month. This resets on the 1st of each month. Upgrade to Premium for unlimited parsing.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Q: What languages are supported?</div>
+                        <div class="faq-answer">A: Smart Planner currently supports English and Simplified Chinese (简体中文). The app automatically detects your system language.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Can I input multiple tasks at once?</div>
+                        <div class="faq-answer">A: Yes! That's one of Smart Planner's key features. You can input multiple events and tasks in a single sentence, separated by commas or natural breaks.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Q: How do I manage my subscription?</div>
+                        <div class="faq-answer">A: Go to Settings → Subscription Management in the app, or manage it through your Apple ID settings: Settings → [Your Name] → Subscriptions.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Is my data private and secure?</div>
+                        <div class="faq-answer">A: Absolutely. We only process your input to create calendar events and reminders. We don't store, read, or share your personal calendar data. All processing happens securely.</div>
                     </div>
                 </div>
 
-                <p style="margin-top: 20px;">We typically respond within 24-48 hours. Please include your device model and iOS version when reporting issues.</p>
+                <!-- Troubleshooting -->
+                <div class="section">
+                    <h2 data-emoji="🔧">Troubleshooting</h2>
+                    
+                    <h3>App not creating events or reminders?</h3>
+                    <ol>
+                        <li>Check that you've granted Calendar and Reminders permissions</li>
+                        <li>Go to iPhone Settings → Privacy & Security → Calendars → Enable Smart Planner</li>
+                        <li>Go to iPhone Settings → Privacy & Security → Reminders → Enable Smart Planner</li>
+                        <li>Restart the app</li>
+                    </ol>
+
+                    <h3>AI parsing not working?</h3>
+                    <ol>
+                        <li>Check your internet connection</li>
+                        <li>Verify you haven't exceeded your monthly limit (free users: 10 parses/month)</li>
+                        <li>Try rephrasing your input more clearly</li>
+                    </ol>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="section">
+                    <h2 data-emoji="📧">Contact & Support</h2>
+                    <p>Need help? Have feedback or suggestions? We'd love to hear from you!</p>
+                    
+                    <div class="jelly-box">
+                        <div class="contact-item">
+                            <span class="contact-icon">✉️</span>
+                            <div>
+                                <strong>Email Support:</strong><br>
+                                <a href="mailto:cray.huang@gmail.com">cray.huang@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span class="contact-icon">🐛</span>
+                            <div>
+                                <strong>Report a Bug:</strong><br>
+                                <a href="mailto:cray.huang@gmail.com?subject=Smart%20Planner%20Bug%20Report">Send Bug Report</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span class="contact-icon">💡</span>
+                            <div>
+                                <strong>Feature Request:</strong><br>
+                                <a href="mailto:cray.huang@gmail.com?subject=Smart%20Planner%20Feature%20Request">Suggest a Feature</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 20px;">We typically respond within 24-48 hours. Please include your device model and iOS version when reporting issues.</p>
+                </div>
+
+                <!-- App Info -->
+                <div class="section">
+                    <h2 data-emoji="ℹ️">App Information</h2>
+                    <div class="jelly-box">
+                        <p><strong>App Name:</strong> Smart Planner</p>
+                        <p><strong>Bundle ID:</strong> com.crayhuang.smartplanner</p>
+                        <p><strong>App Store ID:</strong> 6738601827</p>
+                        <p><strong>Developer:</strong> Cray Huang</p>
+                        <p><strong>Category:</strong> Productivity</p>
+                        <p style="margin-bottom: 0;"><strong>Requires:</strong> iOS 16.0 or later</p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Privacy & Terms -->
-            <div class="section">
-                <h2>🔒 Privacy & Terms</h2>
-                <p>Your privacy is important to us. Smart Planner:</p>
-                <ul>
-                    <li>Only accesses Calendar and Reminders when you explicitly create content</li>
-                    <li>Does not read or store your existing calendar data</li>
-                    <li>Does not share your information with third parties</li>
-                    <li>Processes AI requests securely</li>
-                    <li>Does not track your personal activities</li>
-                </ul>
+            <div class="footer">
+                <p>&copy; 2024 Smart Planner. All rights reserved.</p>
+                <p>Made with ❤️ for productivity enthusiasts</p>
             </div>
-
-            <!-- App Info -->
-            <div class="section">
-                <h2>ℹ️ App Information</h2>
-                <p><strong>App Name:</strong> Smart Planner</p>
-                <p><strong>Bundle ID:</strong> com.crayhuang.smartplanner</p>
-                <p><strong>App Store ID:</strong> 6738601827</p>
-                <p><strong>Developer:</strong> Cray Huang</p>
-                <p><strong>Category:</strong> Productivity</p>
-                <p><strong>Requires:</strong> iOS 16.0 or later</p>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>&copy; 2024 Smart Planner. All rights reserved.</p>
-            <p>Made with ❤️ for productivity enthusiasts</p>
         </div>
     </div>
 </body>
