@@ -2,10 +2,12 @@
 
 ## 文件说明
 
-本项目包含两个支持页面：
+本项目是 Smart Planner 的产品官网与支持站点：
 
-1. **support.html** - 英文版支持页面
-2. **support-zh.html** - 简体中文版支持页面
+1. **index.html / index-zh.html** - 中英文产品首页
+2. **support.html / support-zh.html** - 中英文支持页面
+3. **privacy-policy.html / privacy-policy-zh.html** - 中英文隐私政策
+4. **site.css** - 与 Smart Planner 3.2 主界面一致的共享视觉样式
 
 ## 功能特点
 
@@ -225,5 +227,5 @@ A: 建议在应用有重大更新时同步更新支持页面，特别是新功�
 
 ---
 
-**最后更新：** 2024年
-**版本：** 1.0.0
+**最后更新：** 2026年6月9日
+**版本：** 3.2
