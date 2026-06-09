@@ -1,579 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Smart Planner Privacy Policy - How we protect your data">
-    <title>Privacy Policy - Smart Planner</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #2d3748;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        .blob {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.3;
-            animation: float 20s infinite ease-in-out;
-            z-index: 0;
-        }
-
-        .blob-1 {
-            width: 300px;
-            height: 300px;
-            background: #ff6b9d;
-            top: -100px;
-            left: -100px;
-            animation-delay: 0s;
-        }
-
-        .blob-2 {
-            width: 400px;
-            height: 400px;
-            background: #feca57;
-            bottom: -150px;
-            right: -150px;
-            animation-delay: 5s;
-        }
-
-        .blob-3 {
-            width: 250px;
-            height: 250px;
-            background: #48dbfb;
-            top: 50%;
-            right: 10%;
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(30px, -50px) scale(1.1);
-            }
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-            }
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.1);
-                opacity: 0.8;
-            }
-        }
-
-        .app-icon {
-            width: 120px;
-            height: 120px;
-            background: white;
-            border-radius: 30px;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 1;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        h1 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .subtitle {
-            font-size: 18px;
-            opacity: 0.95;
-            position: relative;
-            z-index: 1;
-        }
-
-        .lang-switch {
-            margin-top: 20px;
-            font-size: 15px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .lang-switch a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.9;
-            padding: 8px 16px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            margin: 0 5px;
-        }
-
-        .lang-switch a:hover {
-            opacity: 1;
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
-        }
-
-        .content {
-            padding: 50px 40px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section:last-child {
-            margin-bottom: 0;
-        }
-
-        h2 {
-            font-size: 28px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        h2::before {
-            content: attr(data-emoji);
-            font-size: 32px;
-            -webkit-text-fill-color: initial;
-        }
-
-        h3 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #4a5568;
-            margin: 25px 0 15px;
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: #4a5568;
-            font-size: 16px;
-        }
-
-        ul {
-            margin-left: 25px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-            color: #4a5568;
-            font-size: 16px;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #f6f8fb 0%, #f1f4f9 100%);
-            border-radius: 20px;
-            padding: 25px;
-            margin: 20px 0;
-            border: 2px solid rgba(102, 126, 234, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .highlight-box:hover {
-            transform: scale(1.02);
-            border-color: rgba(102, 126, 234, 0.3);
-        }
-
-        .highlight-box strong {
-            color: #667eea;
-        }
-
-        a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        a:hover {
-            color: #764ba2;
-            text-decoration: underline;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #f6f8fb 0%, #f1f4f9 100%);
-            padding: 40px;
-            text-align: center;
-            color: #718096;
-            font-size: 15px;
-            border-radius: 30px 30px 0 0;
-        }
-
-        .footer p {
-            color: #718096;
-            margin-bottom: 10px;
-        }
-
-        .last-updated {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 14px;
-            color: #718096;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-
-            .header {
-                padding: 40px 25px;
-            }
-
-            h1 {
-                font-size: 32px;
-            }
-
-            .content {
-                padding: 35px 25px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            .app-icon {
-                width: 100px;
-                height: 100px;
-                font-size: 50px;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Smart Planner privacy policy and details about Calendar, Reminders and AI data use.">
+  <meta name="theme-color" content="#fffaf0">
+  <title>Privacy Policy - Smart Planner</title>
+  <link rel="icon" href="app-icon.jpg">
+  <link rel="stylesheet" href="site.css">
 </head>
 <body>
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html"><img src="app-icon.jpg" alt="" width="42" height="42"><span>Smart Planner</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="support.html">Support</a>
+      <a class="language" href="privacy-policy-zh.html">简体中文</a>
+    </nav>
+  </header>
 
-    <div class="container">
-        <div class="card">
-            <div class="header">
-                <div class="app-icon">🔒</div>
-                <h1>Privacy Policy</h1>
-                <p class="subtitle">Smart Planner</p>
-                <div class="lang-switch">
-                    English | <a href="privacy-policy-zh.html">简体中文</a> | <a href="support.html">Support</a>
-                </div>
+  <main class="legal-main shell">
+    <section class="legal-hero">
+      <div>
+        <div class="eyebrow"><span class="status-dot"></span>Last updated June 9, 2026</div>
+        <h1>Privacy,<br><span>without fine-print fog.</span></h1>
+        <p class="lead">This policy explains what Smart Planner accesses, why it needs Calendar and Reminders permissions, and when information is sent to an AI provider.</p>
+      </div>
+      <aside class="legal-summary">
+        <span class="summary-icon">⌁</span>
+        <h2>The short version</h2>
+        <p>Smart Planner reads and updates Calendar and Reminders data only to provide features you choose.</p>
+        <p>We do not operate a server that permanently stores a copy of your Calendar or Reminders database.</p>
+      </aside>
+    </section>
+
+    <div class="legal-layout">
+      <aside class="legal-index" aria-label="Privacy policy sections">
+        <strong>On this page</strong>
+        <a href="#information">Information</a>
+        <a href="#usage">How it is used</a>
+        <a href="#permissions">Permissions</a>
+        <a href="#third-parties">Third parties</a>
+        <a href="#security">Security</a>
+        <a href="#rights">Your rights</a>
+        <a href="#contact">Contact</a>
+      </aside>
+
+      <div class="legal-content">
+        <section class="legal-card intro-card">
+          <span class="legal-number">01</span>
+          <h2>Introduction</h2>
+          <p>Welcome to Smart Planner. We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we handle information when you use the app.</p>
+        </section>
+
+        <section class="legal-card" id="information">
+          <span class="legal-number">02</span>
+          <h2>Information we handle</h2>
+          <div class="legal-columns">
+            <div>
+              <h3>Accessed on your device</h3>
+              <ul>
+                <li><strong>Calendar data:</strong> Selected calendar lists and events used to display schedules, detect conflicts, edit events, and generate requested plans or summaries.</li>
+                <li><strong>Reminder data:</strong> Reminder lists and tasks used to display, prioritize, complete, edit, delete, and reschedule todos.</li>
+              </ul>
             </div>
-
-            <div class="content">
-                <div class="last-updated">
-                    <strong>Last Updated:</strong> June 9, 2026
-                </div>
-
-                <!-- Introduction -->
-                <div class="section">
-                    <h2 data-emoji="📱">Introduction</h2>
-                    <p>Welcome to Smart Planner. We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we handle your information when you use our app.</p>
-                    
-                    <div class="highlight-box">
-                        <strong>Key Point:</strong> Smart Planner reads and updates Calendar and Reminders data only to provide the features you request. We do not operate a server that permanently stores your Calendar or Reminders database.
-                    </div>
-                </div>
-
-                <!-- Information We Collect -->
-                <div class="section">
-                    <h2 data-emoji="📊">Information We Collect</h2>
-                    
-                    <h3>Information We Access Locally</h3>
-                    <ul>
-                        <li><strong>Calendar Data:</strong> Selected calendar lists and events used to display schedules, detect conflicts, edit events, and generate requested plans or summaries</li>
-                        <li><strong>Reminder Data:</strong> Reminder lists and tasks used to display, prioritize, complete, edit, delete, and reschedule todos</li>
-                    </ul>
-
-                    <h3>Information We DO NOT Intentionally Collect</h3>
-                    <ul>
-                        <li><strong>Personal Information:</strong> We do not collect names, email addresses, phone numbers, or other personal identifiers</li>
-                        <li><strong>Location Data:</strong> We do not track your physical location</li>
-                        <li><strong>Contacts:</strong> We do not access your contact list</li>
-                    </ul>
-
-                    <h3>Information We Process Temporarily</h3>
-                    <ul>
-                        <li><strong>AI Request Data:</strong> Your text input and, when required for a planning or summary request, relevant calendar and reminder context are sent to DeepSeek for processing</li>
-                        <li><strong>Usage Statistics:</strong> We track the number of AI parses you've used to enforce subscription limits. This is stored locally on your device</li>
-                    </ul>
-                </div>
-
-                <!-- How We Use Your Information -->
-                <div class="section">
-                    <h2 data-emoji="🔧">How We Use Your Information</h2>
-                    
-                    <h3>AI Parsing</h3>
-                    <p>When you submit text for AI parsing:</p>
-                    <ul>
-                        <li>Your input and the schedule context required for the requested feature are sent to DeepSeek API for natural language processing</li>
-                        <li>The AI extracts events and tasks from your text</li>
-                        <li>Results are returned to your device</li>
-                        <li>No data is stored on our servers</li>
-                    </ul>
-
-                    <h3>Calendar and Reminder Creation</h3>
-                    <p>When you save parsed results:</p>
-                    <ul>
-                        <li>Events are created directly in your Apple Calendar</li>
-                        <li>Tasks are created directly in your Apple Reminders</li>
-                        <li>All data stays on your device and in your iCloud (if enabled)</li>
-                        <li>The app may read and update this data later to display it and support editing, completion, deletion, and synchronization</li>
-                    </ul>
-                </div>
-
-                <!-- Permissions -->
-                <div class="section">
-                    <h2 data-emoji="🔐">Permissions We Request</h2>
-                    
-                    <h3>Calendar Access</h3>
-                    <p><strong>Why we need it:</strong> To display, create, edit, delete, synchronize, and summarize calendar events</p>
-                    <p><strong>What we do:</strong> Request full access so the app can provide Calendar features selected by you</p>
-
-                    <h3>Reminders Access</h3>
-                    <p><strong>Why we need it:</strong> To display, create, edit, complete, delete, synchronize, and summarize reminder tasks</p>
-                    <p><strong>What we do:</strong> Request full access so the app can provide todo-management features selected by you</p>
-
-                    <div class="highlight-box">
-                        <strong>Important:</strong> You control these permissions in iOS Settings and can revoke them at any time.
-                    </div>
-                </div>
-
-                <!-- Third-Party Services -->
-                <div class="section">
-                    <h2 data-emoji="🤝">Third-Party AI Service & Data Sharing</h2>
-                    
-                    <div class="highlight-box">
-                        <strong>Important Notice:</strong> When you use AI parsing features, your text input is sent to a third-party AI service (DeepSeek). Please read this section carefully to understand what data is shared and how it's protected.
-                    </div>
-
-                    <h3>DeepSeek AI Service</h3>
-                    <p>We use DeepSeek's AI service to intelligently parse your natural language input and create calendar events and reminders.</p>
-                    
-                    <h3>What Data We Send to DeepSeek</h3>
-                    <p>When you request AI parsing, planning, or a summary, we may send the following data to DeepSeek:</p>
-                    <ul>
-                        <li><strong>Your Text Input:</strong> The tasks and events you want to create (e.g., "Meeting tomorrow at 3pm, finish report by Friday")</li>
-                        <li><strong>Language Setting:</strong> Your preferred language to help the AI understand your input better</li>
-                        <li><strong>Relevant Schedule Context:</strong> Event and reminder details needed to produce the plan or summary you requested</li>
-                    </ul>
-
-                    <h3>What Data We DO NOT Send to DeepSeek</h3>
-                    <ul>
-                        <li>❌ Personal information (name, email, phone number)</li>
-                        <li>❌ Precise device location</li>
-                        <li>❌ Contacts or other device data</li>
-                        <li>❌ Calendar or reminder data unrelated to the requested AI operation</li>
-                    </ul>
-
-                    <h3>How Your Data is Protected</h3>
-                    <ul>
-                        <li><strong>Secure Transmission:</strong> All data is transmitted via HTTPS encryption</li>
-                        <li><strong>No Permanent Storage:</strong> We do not store your input text on our servers</li>
-                        <li><strong>Processing Only:</strong> DeepSeek processes your text and returns structured data (events and tasks)</li>
-                        <li><strong>Third-Party Privacy:</strong> DeepSeek processes data according to their privacy policy</li>
-                    </ul>
-
-                    <h3>Your Consent</h3>
-                    <p>Before using AI parsing for the first time, you will be asked to review and agree to this data sharing. You can:</p>
-                    <ul>
-                        <li>Choose not to use AI parsing features</li>
-                        <li>Manually create events and reminders without AI</li>
-                        <li>Review DeepSeek's privacy policy before agreeing</li>
-                    </ul>
-
-                    <p><strong>Learn more:</strong> <a href="https://www.deepseek.com/privacy-policy" target="_blank">DeepSeek Privacy Policy</a></p>
-
-                    <h3>Apple Services</h3>
-                    <p>Smart Planner integrates with Apple's native Calendar and Reminders apps:</p>
-                    <ul>
-                        <li>All created events and tasks are stored using Apple's infrastructure</li>
-                        <li>If you use iCloud, your data syncs according to Apple's privacy policy</li>
-                        <li>The app accesses Calendar and Reminders data according to the permissions and calendar selections you configure</li>
-                        <li>Learn more: <a href="https://www.apple.com/privacy/" target="_blank">Apple Privacy Policy</a></li>
-                    </ul>
-
-                    <h3>In-App Purchases</h3>
-                    <p>Subscription purchases are processed by Apple:</p>
-                    <ul>
-                        <li>We do not handle payment information</li>
-                        <li>Apple manages all billing and payment data</li>
-                        <li>We only receive confirmation of subscription status</li>
-                    </ul>
-                </div>
-
-                <!-- Data Security -->
-                <div class="section">
-                    <h2 data-emoji="🛡️">Data Security</h2>
-                    
-                    <h3>How We Protect Your Data</h3>
-                    <ul>
-                        <li><strong>Encryption:</strong> All data transmitted to DeepSeek API uses HTTPS encryption</li>
-                        <li><strong>No App-Operated Calendar Database:</strong> We do not maintain a server-side copy of your Calendar or Reminders database</li>
-                        <li><strong>Local Processing:</strong> Subscription status and usage counts are stored locally on your device</li>
-                        <li><strong>Minimal Data:</strong> We only process the minimum data necessary for functionality</li>
-                    </ul>
-
-                    <div class="highlight-box">
-                        <strong>Your Control:</strong> You can delete the app at any time to remove all local data. Your calendar events and reminders will remain in Apple's Calendar and Reminders apps.
-                    </div>
-                </div>
-
-                <!-- Your Rights -->
-                <div class="section">
-                    <h2 data-emoji="⚖️">Your Rights</h2>
-                    
-                    <p>You have the right to:</p>
-                    <ul>
-                        <li><strong>Access:</strong> Review what data is stored locally on your device</li>
-                        <li><strong>Delete:</strong> Remove the app to delete all local data</li>
-                        <li><strong>Revoke Permissions:</strong> Disable Calendar and Reminders access in iOS Settings at any time</li>
-                        <li><strong>Cancel Subscription:</strong> Cancel your subscription through Apple's subscription management</li>
-                        <li><strong>Contact Us:</strong> Ask questions about your privacy at any time</li>
-                    </ul>
-                </div>
-
-                <!-- Children's Privacy -->
-                <div class="section">
-                    <h2 data-emoji="👶">Children's Privacy</h2>
-                    <p>Smart Planner is not directed to children under 13 years of age. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.</p>
-                </div>
-
-                <!-- Changes to Privacy Policy -->
-                <div class="section">
-                    <h2 data-emoji="📝">Changes to This Privacy Policy</h2>
-                    <p>We may update this privacy policy from time to time. We will notify you of any changes by:</p>
-                    <ul>
-                        <li>Posting the new privacy policy on this page</li>
-                        <li>Updating the "Last Updated" date</li>
-                        <li>Notifying you through the app (for significant changes)</li>
-                    </ul>
-                    <p>You are advised to review this privacy policy periodically for any changes.</p>
-                </div>
-
-                <!-- Contact Us -->
-                <div class="section">
-                    <h2 data-emoji="📧">Contact Us</h2>
-                    <p>If you have any questions about this privacy policy or our privacy practices, please contact us:</p>
-                    
-                    <div class="highlight-box">
-                        <p><strong>Email:</strong> <a href="mailto:cray.huang@gmail.com">cray.huang@gmail.com</a></p>
-                        <p><strong>Developer:</strong> Cray Huang</p>
-                        <p style="margin-bottom: 0;"><strong>Response Time:</strong> We typically respond within 24-48 hours</p>
-                    </div>
-                </div>
-
-                <!-- Legal -->
-                <div class="section">
-                    <h2 data-emoji="📜">Legal Information</h2>
-                    
-                    <h3>App Information</h3>
-                    <ul>
-                        <li><strong>App Name:</strong> Smart Planner</li>
-                        <li><strong>Bundle ID:</strong> com.crayhuang.smartplanner</li>
-                        <li><strong>App Store ID:</strong> 6738601827</li>
-                        <li><strong>Developer:</strong> Cray Huang</li>
-                    </ul>
-
-                    <h3>Compliance</h3>
-                    <p>This privacy policy is designed to comply with:</p>
-                    <ul>
-                        <li>Apple App Store Guidelines</li>
-                        <li>General Data Protection Regulation (GDPR)</li>
-                        <li>California Consumer Privacy Act (CCPA)</li>
-                        <li>Other applicable privacy laws</li>
-                    </ul>
-                </div>
+            <div>
+              <h3>Not intentionally collected</h3>
+              <ul>
+                <li>Names, email addresses, phone numbers or other personal identifiers.</li>
+                <li>Your physical location.</li>
+                <li>Your contacts.</li>
+              </ul>
             </div>
+          </div>
+          <div class="legal-note blue-note">
+            <strong>Temporarily processed</strong>
+            <p>AI requests may include your text input and the relevant Calendar or Reminders context required for a planning or summary request. AI usage counts used for subscription limits are stored locally on your device.</p>
+          </div>
+        </section>
 
-            <div class="footer">
-                <p>&copy; 2026 Smart Planner. All rights reserved.</p>
-                <p><a href="support.html">Support</a> | <a href="privacy-policy.html">Privacy Policy</a></p>
-            </div>
-        </div>
+        <section class="legal-card" id="usage">
+          <span class="legal-number">03</span>
+          <h2>How we use information</h2>
+          <h3>AI parsing, planning and summaries</h3>
+          <ul>
+            <li>Your input and the schedule context required for the requested feature are sent to the DeepSeek API using HTTPS.</li>
+            <li>The AI processes the request and returns structured results to your device.</li>
+            <li>We do not store your input in an app-operated server database.</li>
+          </ul>
+          <h3>Calendar and Reminders</h3>
+          <ul>
+            <li>Events are created directly in Apple Calendar and tasks in Apple Reminders.</li>
+            <li>Data remains on your device and in iCloud when enabled.</li>
+            <li>The app may later read and update these items to support display, editing, completion, deletion and synchronization.</li>
+          </ul>
+        </section>
+
+        <section class="legal-card" id="permissions">
+          <span class="legal-number">04</span>
+          <h2>Permissions we request</h2>
+          <div class="permission-grid">
+            <article>
+              <span>▦</span>
+              <h3>Calendar access</h3>
+              <p>Used to display, create, edit, delete, synchronize and summarize calendar events.</p>
+            </article>
+            <article>
+              <span>✓</span>
+              <h3>Reminders access</h3>
+              <p>Used to display, create, edit, complete, delete, synchronize and summarize reminder tasks.</p>
+            </article>
+          </div>
+          <div class="legal-note green-note"><strong>You stay in control.</strong> Manage or revoke these permissions at any time in iOS Settings.</div>
+        </section>
+
+        <section class="legal-card" id="third-parties">
+          <span class="legal-number">05</span>
+          <h2>Third-party services</h2>
+          <div class="legal-note yellow-note">
+            <strong>AI data notice</strong>
+            <p>When you request AI parsing, planning or a summary, Smart Planner sends data needed for that operation to DeepSeek. You are asked to review and accept this data use before first using AI features.</p>
+          </div>
+          <h3>Data that may be sent to DeepSeek</h3>
+          <ul>
+            <li>Your text input, such as tasks and events you want to create.</li>
+            <li>Your preferred language.</li>
+            <li>Relevant event and reminder details needed for the requested plan or summary.</li>
+          </ul>
+          <h3>Data we do not intentionally send</h3>
+          <ul>
+            <li>Names, email addresses or phone numbers.</li>
+            <li>Precise device location or contacts.</li>
+            <li>Calendar or reminder data unrelated to the requested AI operation.</li>
+          </ul>
+          <h3>How AI request data is protected</h3>
+          <ul>
+            <li>Transmission uses HTTPS encryption.</li>
+            <li>We do not permanently store your input on our servers.</li>
+            <li>DeepSeek processes data under its own privacy policy. <a href="https://www.deepseek.com/privacy-policy" target="_blank" rel="noopener">Read DeepSeek's privacy policy</a>.</li>
+            <li>You may choose not to use AI features and create items manually.</li>
+          </ul>
+          <h3>Apple services and purchases</h3>
+          <ul>
+            <li>Apple stores Calendar and Reminders data and handles iCloud synchronization under your Apple settings.</li>
+            <li>Apple processes subscription billing. We do not receive payment details, only subscription status.</li>
+            <li><a href="https://www.apple.com/privacy/" target="_blank" rel="noopener">Read Apple's privacy policy</a>.</li>
+          </ul>
+        </section>
+
+        <section class="legal-card" id="security">
+          <span class="legal-number">06</span>
+          <h2>Data security</h2>
+          <ul>
+            <li><strong>Encryption:</strong> Data transmitted to the AI API uses HTTPS.</li>
+            <li><strong>No app-operated schedule database:</strong> We do not maintain a server-side copy of your complete Calendar or Reminders database.</li>
+            <li><strong>Local storage:</strong> Subscription status and usage counts are stored locally.</li>
+            <li><strong>Data minimization:</strong> We process only the data needed for the requested feature.</li>
+          </ul>
+          <div class="legal-note pink-note"><strong>Deleting the app</strong> removes local app data. Events and reminders already stored in Apple's apps remain there until you remove them.</div>
+        </section>
+
+        <section class="legal-card" id="rights">
+          <span class="legal-number">07</span>
+          <h2>Your choices and rights</h2>
+          <ul>
+            <li>Review data stored locally on your device.</li>
+            <li>Delete the app to remove local app data.</li>
+            <li>Revoke Calendar and Reminders access in iOS Settings.</li>
+            <li>Cancel subscriptions through Apple's subscription management.</li>
+            <li>Contact us with privacy questions.</li>
+          </ul>
+          <h3>Children's privacy</h3>
+          <p>Smart Planner is not directed to children under 13. We do not knowingly collect personal information from children under 13. A parent or guardian who believes a child provided personal information should contact us.</p>
+          <h3>Policy changes</h3>
+          <p>We may update this policy by publishing a revised version here, updating the date at the top, and providing an in-app notice for significant changes.</p>
+        </section>
+
+        <section class="legal-card contact-card" id="contact">
+          <span class="legal-number">08</span>
+          <h2>Questions about privacy?</h2>
+          <p>Email <a href="mailto:cray.huang@gmail.com">cray.huang@gmail.com</a>. We typically reply within 24–48 hours.</p>
+          <div class="app-meta">
+            <span><strong>Developer</strong> Cray Huang</span>
+            <span><strong>Bundle ID</strong> com.crayhuang.smartplanner</span>
+            <span><strong>App Store ID</strong> 6738601827</span>
+          </div>
+          <p class="compliance">This policy is intended to address applicable Apple App Store requirements, GDPR, CCPA and other applicable privacy laws.</p>
+        </section>
+      </div>
     </div>
+  </main>
+
+  <footer class="site-footer shell">
+    <div><strong>Smart Planner</strong><p>Clear tools. Clear data boundaries.</p></div>
+    <div class="footer-links"><a href="index.html">Home</a><a href="support.html">Support</a><a href="privacy-policy-zh.html">简体中文</a></div>
+    <p class="copyright">© 2026 Cray Huang</p>
+  </footer>
 </body>
 </html>

@@ -1,579 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hans">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Smart Planner 隐私政策 - 我们如何保护您的数据">
-    <title>隐私政策 - Smart Planner</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            line-height: 1.8;
-            color: #2d3748;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        .blob {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.3;
-            animation: float 20s infinite ease-in-out;
-            z-index: 0;
-        }
-
-        .blob-1 {
-            width: 300px;
-            height: 300px;
-            background: #ff6b9d;
-            top: -100px;
-            left: -100px;
-            animation-delay: 0s;
-        }
-
-        .blob-2 {
-            width: 400px;
-            height: 400px;
-            background: #feca57;
-            bottom: -150px;
-            right: -150px;
-            animation-delay: 5s;
-        }
-
-        .blob-3 {
-            width: 250px;
-            height: 250px;
-            background: #48dbfb;
-            top: 50%;
-            right: 10%;
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(30px, -50px) scale(1.1);
-            }
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-            }
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.1);
-                opacity: 0.8;
-            }
-        }
-
-        .app-icon {
-            width: 120px;
-            height: 120px;
-            background: white;
-            border-radius: 30px;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 1;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        h1 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .subtitle {
-            font-size: 18px;
-            opacity: 0.95;
-            position: relative;
-            z-index: 1;
-        }
-
-        .lang-switch {
-            margin-top: 20px;
-            font-size: 15px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .lang-switch a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.9;
-            padding: 8px 16px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            margin: 0 5px;
-        }
-
-        .lang-switch a:hover {
-            opacity: 1;
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
-        }
-
-        .content {
-            padding: 50px 40px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section:last-child {
-            margin-bottom: 0;
-        }
-
-        h2 {
-            font-size: 28px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        h2::before {
-            content: attr(data-emoji);
-            font-size: 32px;
-            -webkit-text-fill-color: initial;
-        }
-
-        h3 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #4a5568;
-            margin: 25px 0 15px;
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: #4a5568;
-            font-size: 16px;
-        }
-
-        ul {
-            margin-left: 25px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-            color: #4a5568;
-            font-size: 16px;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #f6f8fb 0%, #f1f4f9 100%);
-            border-radius: 20px;
-            padding: 25px;
-            margin: 20px 0;
-            border: 2px solid rgba(102, 126, 234, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .highlight-box:hover {
-            transform: scale(1.02);
-            border-color: rgba(102, 126, 234, 0.3);
-        }
-
-        .highlight-box strong {
-            color: #667eea;
-        }
-
-        a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        a:hover {
-            color: #764ba2;
-            text-decoration: underline;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #f6f8fb 0%, #f1f4f9 100%);
-            padding: 40px;
-            text-align: center;
-            color: #718096;
-            font-size: 15px;
-            border-radius: 30px 30px 0 0;
-        }
-
-        .footer p {
-            color: #718096;
-            margin-bottom: 10px;
-        }
-
-        .last-updated {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 14px;
-            color: #718096;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-
-            .header {
-                padding: 40px 25px;
-            }
-
-            h1 {
-                font-size: 32px;
-            }
-
-            .content {
-                padding: 35px 25px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            .app-icon {
-                width: 100px;
-                height: 100px;
-                font-size: 50px;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Smart Planner 隐私政策，以及日历、提醒事项和 AI 数据使用说明。">
+  <meta name="theme-color" content="#fffaf0">
+  <title>隐私政策 - Smart Planner</title>
+  <link rel="icon" href="app-icon.jpg">
+  <link rel="stylesheet" href="site.css">
 </head>
 <body>
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
+  <header class="site-header">
+    <a class="brand" href="index-zh.html"><img src="app-icon.jpg" alt="" width="42" height="42"><span>Smart Planner</span></a>
+    <nav aria-label="主导航">
+      <a href="index-zh.html">首页</a>
+      <a href="support-zh.html">支持</a>
+      <a class="language" href="privacy-policy.html">English</a>
+    </nav>
+  </header>
 
-    <div class="container">
-        <div class="card">
-            <div class="header">
-                <div class="app-icon">🔒</div>
-                <h1>隐私政策</h1>
-                <p class="subtitle">Smart Planner</p>
-                <div class="lang-switch">
-                    <a href="privacy-policy.html">English</a> | 简体中文 | <a href="support-zh.html">支持</a>
-                </div>
+  <main class="legal-main shell">
+    <section class="legal-hero">
+      <div>
+        <div class="eyebrow"><span class="status-dot"></span>最后更新：2026 年 6 月 9 日</div>
+        <h1>隐私说明，<br><span>不绕弯子。</span></h1>
+        <p class="lead">这里说明 Smart Planner 会访问哪些信息、为什么需要日历和提醒事项权限，以及何时会把信息发送给 AI 服务提供商。</p>
+      </div>
+      <aside class="legal-summary">
+        <span class="summary-icon">⌁</span>
+        <h2>先说重点</h2>
+        <p>Smart Planner 只为你主动使用的功能读取和更新日历与提醒事项。</p>
+        <p>我们不会运营服务器，永久保存你的完整日历或提醒事项数据库副本。</p>
+      </aside>
+    </section>
+
+    <div class="legal-layout">
+      <aside class="legal-index" aria-label="隐私政策目录">
+        <strong>本页内容</strong>
+        <a href="#information">处理的信息</a>
+        <a href="#usage">使用方式</a>
+        <a href="#permissions">系统权限</a>
+        <a href="#third-parties">第三方服务</a>
+        <a href="#security">数据安全</a>
+        <a href="#rights">你的权利</a>
+        <a href="#contact">联系我们</a>
+      </aside>
+
+      <div class="legal-content">
+        <section class="legal-card intro-card">
+          <span class="legal-number">01</span>
+          <h2>简介</h2>
+          <p>欢迎使用 Smart Planner。我们尊重你的隐私，并致力于保护个人数据。本隐私政策说明你使用 App 时，我们会如何处理相关信息。</p>
+        </section>
+
+        <section class="legal-card" id="information">
+          <span class="legal-number">02</span>
+          <h2>我们处理的信息</h2>
+          <div class="legal-columns">
+            <div>
+              <h3>在设备上访问</h3>
+              <ul>
+                <li><strong>日历数据：</strong>用于显示日程、检测冲突、编辑事件，以及生成你请求的规划或总结。</li>
+                <li><strong>提醒数据：</strong>用于显示、排序、完成、编辑、删除和重新安排待办。</li>
+              </ul>
             </div>
-
-            <div class="content">
-                <div class="last-updated">
-                    <strong>最后更新：</strong>2026年6月9日
-                </div>
-
-                <!-- 简介 -->
-                <div class="section">
-                    <h2 data-emoji="📱">简介</h2>
-                    <p>欢迎使用 Smart Planner。我们尊重您的隐私，致力于保护您的个人数据。本隐私政策说明我们在您使用应用时如何处理您的信息。</p>
-                    
-                    <div class="highlight-box">
-                        <strong>核心要点：</strong>Smart Planner 只为您主动使用的功能读取和更新日历与提醒事项。我们不会运营服务器永久保存您的完整日历或提醒事项数据库。
-                    </div>
-                </div>
-
-                <!-- 我们收集的信息 -->
-                <div class="section">
-                    <h2 data-emoji="📊">我们收集的信息</h2>
-                    
-                    <h3>我们在设备上访问的信息</h3>
-                    <ul>
-                        <li><strong>日历数据：</strong>用于显示日程、检测冲突、编辑事件，以及生成您请求的规划或总结</li>
-                        <li><strong>提醒数据：</strong>用于显示、排序、完成、编辑、删除和重新安排待办</li>
-                    </ul>
-
-                    <h3>我们不会主动收集的信息</h3>
-                    <ul>
-                        <li><strong>个人信息：</strong>我们不收集姓名、电子邮件地址、电话号码或其他个人标识符</li>
-                        <li><strong>位置数据：</strong>我们不跟踪您的物理位置</li>
-                        <li><strong>通讯录：</strong>我们不访问您的联系人列表</li>
-                    </ul>
-
-                    <h3>我们临时处理的信息</h3>
-                    <ul>
-                        <li><strong>AI 请求数据：</strong>您的文本输入，以及规划或总结所需的相关日历和提醒事项上下文，会发送到 DeepSeek 处理</li>
-                        <li><strong>使用统计：</strong>我们跟踪您使用的 AI 解析次数以执行订阅限制。这些数据存储在您的设备本地</li>
-                    </ul>
-                </div>
-
-                <!-- 我们如何使用您的信息 -->
-                <div class="section">
-                    <h2 data-emoji="🔧">我们如何使用您的信息</h2>
-                    
-                    <h3>AI 解析</h3>
-                    <p>当您提交文本进行 AI 解析时：</p>
-                    <ul>
-                        <li>您的输入和完成所请求功能所需的日程上下文会发送到 DeepSeek API 进行自然语言处理</li>
-                        <li>AI 从您的文本中提取事件和任务</li>
-                        <li>结果返回到您的设备</li>
-                        <li>我们的服务器不存储任何数据</li>
-                    </ul>
-
-                    <h3>日历和提醒创建</h3>
-                    <p>当您保存解析结果时：</p>
-                    <ul>
-                        <li>事件直接创建在您的苹果日历中</li>
-                        <li>任务直接创建在您的苹果提醒事项中</li>
-                        <li>所有数据保留在您的设备中</li>
-                        <li>应用之后可能读取和更新这些数据，以支持显示、编辑、完成、删除和同步</li>
-                    </ul>
-                </div>
-
-                <!-- 权限 -->
-                <div class="section">
-                    <h2 data-emoji="🔐">我们请求的权限</h2>
-                    
-                    <h3>日历访问</h3>
-                    <p><strong>为什么需要：</strong>显示、创建、编辑、删除、同步和总结日历事件</p>
-                    <p><strong>我们做什么：</strong>请求完整访问权限，以提供您选择使用的 Calendar 功能</p>
-
-                    <h3>提醒事项访问</h3>
-                    <p><strong>为什么需要：</strong>显示、创建、编辑、完成、删除、同步和总结提醒任务</p>
-                    <p><strong>我们做什么：</strong>请求完整访问权限，以提供您选择使用的待办管理功能</p>
-
-                    <div class="highlight-box">
-                        <strong>重要提示：</strong>您可以随时在 iOS 设置中管理或撤销这些权限。
-                    </div>
-                </div>
-
-                <!-- 第三方服务 -->
-                <div class="section">
-                    <h2 data-emoji="🤝">第三方 AI 服务与数据共享</h2>
-                    
-                    <div class="highlight-box">
-                        <strong>重要提示：</strong>当您使用 AI 解析功能时，您的文本输入会发送到第三方 AI 服务（DeepSeek）。请仔细阅读本节，了解共享哪些数据以及如何保护这些数据。
-                    </div>
-
-                    <h3>DeepSeek AI 服务</h3>
-                    <p>我们使用 DeepSeek 的 AI 服务来智能解析您的自然语言输入，并创建日历事件和提醒任务。</p>
-                    
-                    <h3>我们发送到 DeepSeek 的数据</h3>
-                    <p>当您请求 AI 解析、规划或总结时，我们可能会将以下数据发送到 DeepSeek：</p>
-                    <ul>
-                        <li><strong>您的文本输入：</strong>您想要创建的任务和事件（例如："明天下午3点开会，周五前完成报告"）</li>
-                        <li><strong>语言设置：</strong>您的首选语言，以帮助 AI 更好地理解您的输入</li>
-                        <li><strong>相关日程上下文：</strong>生成您请求的规划或总结所需的事件和提醒事项详情</li>
-                    </ul>
-
-                    <h3>我们不会发送到 DeepSeek 的数据</h3>
-                    <ul>
-                        <li>❌ 个人信息（姓名、电子邮件、电话号码）</li>
-                        <li>❌ 精确设备位置</li>
-                        <li>❌ 通讯录或其他设备数据</li>
-                        <li>❌ 与所请求 AI 操作无关的日历或提醒事项数据</li>
-                    </ul>
-
-                    <h3>您的数据如何受到保护</h3>
-                    <ul>
-                        <li><strong>安全传输：</strong>所有数据通过 HTTPS 加密传输</li>
-                        <li><strong>不永久存储：</strong>我们不会在服务器上存储您的输入文本</li>
-                        <li><strong>仅用于处理：</strong>DeepSeek 处理您的文本并返回结构化数据（事件和任务）</li>
-                        <li><strong>第三方隐私：</strong>DeepSeek 根据其隐私政策处理数据</li>
-                    </ul>
-
-                    <h3>您的同意</h3>
-                    <p>在首次使用 AI 解析之前，您将被要求查看并同意此数据共享。您可以：</p>
-                    <ul>
-                        <li>选择不使用 AI 解析功能</li>
-                        <li>手动创建事件和提醒，无需 AI</li>
-                        <li>在同意之前查看 DeepSeek 的隐私政策</li>
-                    </ul>
-
-                    <p><strong>了解更多：</strong><a href="https://www.deepseek.com/privacy-policy" target="_blank">DeepSeek 隐私政策</a></p>
-
-                    <h3>苹果服务</h3>
-                    <p>Smart Planner 与苹果原生的日历和提醒事项应用集成：</p>
-                    <ul>
-                        <li>所有创建的事件和任务使用苹果的基础设施存储</li>
-                        <li>如果您使用 iCloud，Apple 日历和提醒事项会按照 Apple 的设置同步</li>
-                        <li>应用会按照您授予的权限和选择的日历清单访问数据</li>
-                        <li>了解更多：<a href="https://www.apple.com/cn/privacy/" target="_blank">苹果隐私政策</a></li>
-                    </ul>
-
-                    <h3>应用内购买</h3>
-                    <p>订阅购买由苹果处理：</p>
-                    <ul>
-                        <li>我们不处理支付信息</li>
-                        <li>苹果管理所有账单和支付数据</li>
-                        <li>我们只接收订阅状态的确认</li>
-                    </ul>
-                </div>
-
-                <!-- 数据安全 -->
-                <div class="section">
-                    <h2 data-emoji="🛡️">数据安全</h2>
-                    
-                    <h3>我们如何保护您的数据</h3>
-                    <ul>
-                        <li><strong>加密：</strong>所有传输到 DeepSeek API 的数据都使用 HTTPS 加密</li>
-                        <li><strong>不建立服务端副本：</strong>我们不会在自有服务器上保存您的完整日历或提醒事项数据库</li>
-                        <li><strong>本地处理：</strong>订阅状态和使用次数存储在您的设备本地</li>
-                        <li><strong>最小数据：</strong>我们只处理功能所需的最少数据</li>
-                    </ul>
-
-                    <div class="highlight-box">
-                        <strong>您的控制权：</strong>您可以随时删除应用以移除所有本地数据。您的日历事件和提醒事项将保留在苹果的日历和提醒事项应用中。
-                    </div>
-                </div>
-
-                <!-- 您的权利 -->
-                <div class="section">
-                    <h2 data-emoji="⚖️">您的权利</h2>
-                    
-                    <p>您有权：</p>
-                    <ul>
-                        <li><strong>访问：</strong>查看设备本地存储的数据</li>
-                        <li><strong>删除：</strong>删除应用以移除所有本地数据</li>
-                        <li><strong>撤销权限：</strong>随时在 iOS 设置中禁用日历和提醒事项访问</li>
-                        <li><strong>取消订阅：</strong>通过苹果的订阅管理取消订阅</li>
-                        <li><strong>联系我们：</strong>随时询问有关隐私的问题</li>
-                    </ul>
-                </div>
-
-                <!-- 儿童隐私 -->
-                <div class="section">
-                    <h2 data-emoji="👶">儿童隐私</h2>
-                    <p>Smart Planner 不面向 13 岁以下的儿童。我们不会故意收集 13 岁以下儿童的个人信息。如果您是家长或监护人，并认为您的孩子向我们提供了个人信息，请联系我们。</p>
-                </div>
-
-                <!-- 隐私政策变更 -->
-                <div class="section">
-                    <h2 data-emoji="📝">隐私政策变更</h2>
-                    <p>我们可能会不时更新本隐私政策。我们将通过以下方式通知您任何变更：</p>
-                    <ul>
-                        <li>在本页面发布新的隐私政策</li>
-                        <li>更新"最后更新"日期</li>
-                        <li>通过应用通知您（重大变更）</li>
-                    </ul>
-                    <p>建议您定期查看本隐私政策以了解任何变更。</p>
-                </div>
-
-                <!-- 联系我们 -->
-                <div class="section">
-                    <h2 data-emoji="📧">联系我们</h2>
-                    <p>如果您对本隐私政策或我们的隐私实践有任何疑问，请联系我们：</p>
-                    
-                    <div class="highlight-box">
-                        <p><strong>电子邮件：</strong><a href="mailto:cray.huang@gmail.com">cray.huang@gmail.com</a></p>
-                        <p><strong>开发者：</strong>Cray Huang</p>
-                        <p style="margin-bottom: 0;"><strong>响应时间：</strong>我们通常在 24-48 小时内回复</p>
-                    </div>
-                </div>
-
-                <!-- 法律信息 -->
-                <div class="section">
-                    <h2 data-emoji="📜">法律信息</h2>
-                    
-                    <h3>应用信息</h3>
-                    <ul>
-                        <li><strong>应用名称：</strong>Smart Planner</li>
-                        <li><strong>Bundle ID：</strong>com.crayhuang.smartplanner</li>
-                        <li><strong>App Store ID：</strong>6738601827</li>
-                        <li><strong>开发者：</strong>Cray Huang</li>
-                    </ul>
-
-                    <h3>合规性</h3>
-                    <p>本隐私政策旨在符合：</p>
-                    <ul>
-                        <li>苹果 App Store 指南</li>
-                        <li>通用数据保护条例（GDPR）</li>
-                        <li>加州消费者隐私法（CCPA）</li>
-                        <li>其他适用的隐私法律</li>
-                    </ul>
-                </div>
+            <div>
+              <h3>不会主动收集</h3>
+              <ul>
+                <li>姓名、邮箱、电话号码或其他个人标识符。</li>
+                <li>你的物理位置。</li>
+                <li>你的通讯录。</li>
+              </ul>
             </div>
+          </div>
+          <div class="legal-note blue-note">
+            <strong>临时处理的信息</strong>
+            <p>AI 请求可能包含你的文本输入，以及完成当前规划或总结所需的相关日历和提醒事项上下文。用于订阅限制的 AI 使用次数会存储在设备本地。</p>
+          </div>
+        </section>
 
-            <div class="footer">
-                <p>&copy; 2026 Smart Planner. 保留所有权利。</p>
-                <p><a href="support-zh.html">支持</a> | <a href="privacy-policy-zh.html">隐私政策</a></p>
-            </div>
-        </div>
+        <section class="legal-card" id="usage">
+          <span class="legal-number">03</span>
+          <h2>信息的使用方式</h2>
+          <h3>AI 解析、规划与总结</h3>
+          <ul>
+            <li>你的输入和当前功能所需的日程上下文会通过 HTTPS 发送到 DeepSeek API。</li>
+            <li>AI 处理请求，并把结构化结果返回到你的设备。</li>
+            <li>我们不会在自有服务器数据库中存储你的输入。</li>
+          </ul>
+          <h3>日历与提醒事项</h3>
+          <ul>
+            <li>事件直接创建在苹果日历中，任务直接创建在苹果提醒事项中。</li>
+            <li>数据保留在你的设备中；开启 iCloud 后会按照 Apple 设置同步。</li>
+            <li>App 之后可能读取和更新这些内容，以支持显示、编辑、完成、删除与双向同步。</li>
+          </ul>
+        </section>
+
+        <section class="legal-card" id="permissions">
+          <span class="legal-number">04</span>
+          <h2>我们请求的权限</h2>
+          <div class="permission-grid">
+            <article>
+              <span>▦</span>
+              <h3>日历访问</h3>
+              <p>用于显示、创建、编辑、删除、同步和总结日历事件。</p>
+            </article>
+            <article>
+              <span>✓</span>
+              <h3>提醒事项访问</h3>
+              <p>用于显示、创建、编辑、完成、删除、同步和总结提醒任务。</p>
+            </article>
+          </div>
+          <div class="legal-note green-note"><strong>控制权始终属于你。</strong>你可以随时在 iOS 设置中管理或撤销这些权限。</div>
+        </section>
+
+        <section class="legal-card" id="third-parties">
+          <span class="legal-number">05</span>
+          <h2>第三方服务</h2>
+          <div class="legal-note yellow-note">
+            <strong>AI 数据提示</strong>
+            <p>当你请求 AI 解析、规划或总结时，Smart Planner 会把完成当前操作所需的数据发送到 DeepSeek。首次使用 AI 功能前，App 会要求你查看并同意此数据使用说明。</p>
+          </div>
+          <h3>可能发送到 DeepSeek 的数据</h3>
+          <ul>
+            <li>你的文本输入，例如想创建的任务和事件。</li>
+            <li>你的首选语言。</li>
+            <li>生成当前规划或总结所需的相关事件与提醒事项详情。</li>
+          </ul>
+          <h3>不会主动发送的数据</h3>
+          <ul>
+            <li>姓名、邮箱或电话号码。</li>
+            <li>精确设备位置或通讯录。</li>
+            <li>与当前 AI 操作无关的日历或提醒事项数据。</li>
+          </ul>
+          <h3>AI 请求数据如何受到保护</h3>
+          <ul>
+            <li>传输过程使用 HTTPS 加密。</li>
+            <li>我们不会在自有服务器上永久保存你的输入。</li>
+            <li>DeepSeek 会按照其隐私政策处理数据。<a href="https://www.deepseek.com/privacy-policy" target="_blank" rel="noopener">查看 DeepSeek 隐私政策</a>。</li>
+            <li>你可以选择不使用 AI 功能，改为手动创建内容。</li>
+          </ul>
+          <h3>Apple 服务与应用内购买</h3>
+          <ul>
+            <li>Apple 存储日历和提醒事项数据，并按照你的 Apple 设置处理 iCloud 同步。</li>
+            <li>订阅账单由 Apple 处理。我们不会收到支付详情，只会收到订阅状态。</li>
+            <li><a href="https://www.apple.com/cn/privacy/" target="_blank" rel="noopener">查看 Apple 隐私政策</a>。</li>
+          </ul>
+        </section>
+
+        <section class="legal-card" id="security">
+          <span class="legal-number">06</span>
+          <h2>数据安全</h2>
+          <ul>
+            <li><strong>加密：</strong>发送到 AI API 的数据使用 HTTPS。</li>
+            <li><strong>不建立服务端日程数据库：</strong>我们不会在服务器端保存你的完整日历或提醒事项数据库副本。</li>
+            <li><strong>本地存储：</strong>订阅状态和使用次数存储在设备本地。</li>
+            <li><strong>数据最小化：</strong>只处理完成当前功能所需的数据。</li>
+          </ul>
+          <div class="legal-note pink-note"><strong>删除 App</strong> 会移除 App 的本地数据。已保存在苹果日历和提醒事项中的内容会继续保留，直到你主动删除。</div>
+        </section>
+
+        <section class="legal-card" id="rights">
+          <span class="legal-number">07</span>
+          <h2>你的选择与权利</h2>
+          <ul>
+            <li>查看存储在设备本地的数据。</li>
+            <li>删除 App 以移除本地应用数据。</li>
+            <li>在 iOS 设置中撤销日历和提醒事项访问权限。</li>
+            <li>通过 Apple 的订阅管理取消订阅。</li>
+            <li>随时联系我们咨询隐私问题。</li>
+          </ul>
+          <h3>儿童隐私</h3>
+          <p>Smart Planner 不面向 13 岁以下儿童，也不会故意收集 13 岁以下儿童的个人信息。如果家长或监护人认为儿童向我们提供了个人信息，请联系我们。</p>
+          <h3>政策变更</h3>
+          <p>我们可能通过在此页面发布修订版本、更新页面顶部日期，以及在重大变更时提供 App 内提示的方式更新本政策。</p>
+        </section>
+
+        <section class="legal-card contact-card" id="contact">
+          <span class="legal-number">08</span>
+          <h2>对隐私有疑问？</h2>
+          <p>请发送邮件至 <a href="mailto:cray.huang@gmail.com">cray.huang@gmail.com</a>，我们通常会在 24–48 小时内回复。</p>
+          <div class="app-meta">
+            <span><strong>开发者</strong> Cray Huang</span>
+            <span><strong>Bundle ID</strong> com.crayhuang.smartplanner</span>
+            <span><strong>App Store ID</strong> 6738601827</span>
+          </div>
+          <p class="compliance">本政策旨在说明适用的 Apple App Store 要求、GDPR、CCPA 及其他适用隐私法律相关事项。</p>
+        </section>
+      </div>
     </div>
+  </main>
+
+  <footer class="site-footer shell">
+    <div><strong>Smart Planner</strong><p>工具清晰，数据边界也清晰。</p></div>
+    <div class="footer-links"><a href="index-zh.html">首页</a><a href="support-zh.html">支持</a><a href="privacy-policy.html">English</a></div>
+    <p class="copyright">© 2026 Cray Huang</p>
+  </footer>
 </body>
 </html>
