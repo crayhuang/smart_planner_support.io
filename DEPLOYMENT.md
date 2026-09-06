@@ -1,8 +1,8 @@
 # 自建服务器部署
 
-本网站是纯静态 HTML/CSS，不需要 Node.js、数据库或后端进程。推荐使用 Ubuntu、Nginx、Let's Encrypt 和 SSH/rsync 部署。
+本网站是纯静态 HTML/CSS，不需要 Node.js、数据库或后端进程。推荐使用 Ubuntu、Nginx 和 Let's Encrypt。
 
-## 1. 准备域名与服务器
+## 1. 推荐：服务器直接克隆
 
 在域名 DNS 中新增一条 `A` 记录，例如：
 
@@ -13,33 +13,32 @@ support.example.com -> 你的服务器公网 IPv4 地址
 登录服务器后执行：
 
 ```bash
-sudo apt update
-sudo apt install -y nginx rsync certbot python3-certbot-nginx
-sudo adduser --disabled-password --gecos "" smartplanner
-sudo mkdir -p /var/www/smart-planner
-sudo chown -R smartplanner:smartplanner /var/www/smart-planner
+sudo mkdir -p /opt
+cd /opt
+sudo git clone https://github.com/crayhuang/smart_planner_support.io.git
+cd smart_planner_support.io
+sudo ./scripts/server-setup.sh support.example.com
 ```
 
-将部署电脑的 SSH 公钥加入服务器 `smartplanner` 用户的 `~/.ssh/authorized_keys`。建议使用单独的部署密钥，而不是 root 账户。
+脚本会安装并启动 Nginx，自动以当前仓库目录作为网站根目录。将 `support.example.com` 替换成真实域名。
 
-## 2. 配置 Nginx
-
-把 [deploy/nginx-smart-planner.conf](deploy/nginx-smart-planner.conf) 上传到服务器：
+DNS 生效后申请 HTTPS：
 
 ```bash
-sudo cp nginx-smart-planner.conf /etc/nginx/sites-available/smart-planner
-sudo ln -s /etc/nginx/sites-available/smart-planner /etc/nginx/sites-enabled/smart-planner
-sudo nginx -t
-sudo systemctl reload nginx
-```
-
-将配置中的 `support.example.com` 替换为你的真实域名，并确保 DNS 已解析后申请 HTTPS：
-
-```bash
+sudo apt-get install -y certbot python3-certbot-nginx
 sudo certbot --nginx -d support.example.com
 ```
 
-## 3. 配置本地部署参数
+以后更新官网内容时，在服务器仓库目录执行：
+
+```bash
+cd /opt/smart_planner_support.io
+./scripts/server-update.sh
+```
+
+Nginx 直接读取静态文件，因此更新后无需重启服务。
+
+## 2. 可选：从本地 rsync 发布
 
 在此仓库根目录执行：
 
@@ -59,7 +58,7 @@ SITE_SSH_KEY=$HOME/.ssh/smart-planner_ed25519
 
 `.env.deploy` 已被 Git 忽略，不能提交私钥或服务器密码。
 
-## 4. 发布网站
+## 3. 发布网站
 
 首次先预演，确认变更文件：
 
@@ -75,7 +74,7 @@ SITE_SSH_KEY=$HOME/.ssh/smart-planner_ed25519
 
 脚本使用 `rsync --delete`，因此服务器网站目录应只存放这个站点的文件。不要将其他网站或手工文件放入 `/var/www/smart-planner`。
 
-## 5. 验证
+## 4. 验证
 
 ```bash
 curl -I https://support.example.com/
@@ -88,4 +87,3 @@ curl -I https://support.example.com/privacy-policy-zh.html
 Support URL: https://support.example.com/
 Privacy Policy: https://support.example.com/privacy-policy.html
 ```
-
