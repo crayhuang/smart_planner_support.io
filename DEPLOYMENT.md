@@ -1,6 +1,6 @@
 # 自建服务器部署
 
-本网站是纯静态 HTML/CSS，不需要 Node.js、数据库或后端进程。推荐使用 Ubuntu、Nginx 和 Let's Encrypt。
+本网站是纯静态 HTML/CSS，不需要 Node.js、数据库或后端进程。推荐使用 Nginx 和 Let's Encrypt；仓库脚本支持 `yum`、`dnf` 与 `apt-get`。
 
 ## 1. 推荐：服务器直接克隆
 
@@ -13,6 +13,7 @@ support.example.com -> 你的服务器公网 IPv4 地址
 登录服务器后执行：
 
 ```bash
+sudo yum install -y git
 sudo mkdir -p /opt
 cd /opt
 sudo git clone https://github.com/crayhuang/smart_planner_support.io.git
@@ -20,14 +21,17 @@ cd smart_planner_support.io
 sudo ./scripts/server-setup.sh support.example.com
 ```
 
-脚本会安装并启动 Nginx，自动以当前仓库目录作为网站根目录。将 `support.example.com` 替换成真实域名。
+脚本会安装并启动 Nginx，自动以当前仓库目录作为网站根目录。将 `support.example.com` 替换成真实域名。对 `yum` 系统，配置文件将写入 `/etc/nginx/conf.d/smart-planner.conf`。
 
 DNS 生效后申请 HTTPS：
 
 ```bash
-sudo apt-get install -y certbot python3-certbot-nginx
+sudo yum install -y epel-release
+sudo yum install -y certbot python3-certbot-nginx
 sudo certbot --nginx -d support.example.com
 ```
+
+如果你的发行版没有 `python3-certbot-nginx` 包，请按该发行版的 Certbot 文档安装对应插件，再执行最后一条证书命令。
 
 以后更新官网内容时，在服务器仓库目录执行：
 

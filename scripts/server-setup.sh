@@ -13,11 +13,29 @@ if [[ -z "$DOMAIN" || ! "$DOMAIN" =~ ^[A-Za-z0-9.-]+$ ]]; then
 fi
 
 SITE_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
-VHOST_PATH="/etc/nginx/sites-available/smart-planner"
-VHOST_LINK="/etc/nginx/sites-enabled/smart-planner"
 
-apt-get update
-apt-get install -y nginx
+if command -v yum >/dev/null 2>&1; then
+  PACKAGE_MANAGER="yum"
+  yum install -y nginx
+elif command -v dnf >/dev/null 2>&1; then
+  PACKAGE_MANAGER="dnf"
+  dnf install -y nginx
+elif command -v apt-get >/dev/null 2>&1; then
+  PACKAGE_MANAGER="apt-get"
+  apt-get update
+  apt-get install -y nginx
+else
+  echo "Unsupported package manager. Install Nginx manually, then rerun this script." >&2
+  exit 1
+fi
+
+if [[ -d /etc/nginx/sites-available ]]; then
+  VHOST_PATH="/etc/nginx/sites-available/smart-planner"
+  VHOST_LINK="/etc/nginx/sites-enabled/smart-planner"
+else
+  VHOST_PATH="/etc/nginx/conf.d/smart-planner.conf"
+  VHOST_LINK=""
+fi
 
 cat > "$VHOST_PATH" <<EOF
 server {
@@ -39,12 +57,20 @@ server {
 }
 EOF
 
-ln -sfn "$VHOST_PATH" "$VHOST_LINK"
+if [[ -n "$VHOST_LINK" ]]; then
+  ln -sfn "$VHOST_PATH" "$VHOST_LINK"
+fi
 nginx -t
 systemctl enable --now nginx
 systemctl reload nginx
 
 echo "Nginx is serving $SITE_ROOT for http://$DOMAIN"
 echo "After DNS resolves, install HTTPS with:"
-echo "  sudo apt-get install -y certbot python3-certbot-nginx"
+if [[ "$PACKAGE_MANAGER" == "yum" ]]; then
+  echo "  sudo yum install -y epel-release certbot python3-certbot-nginx"
+elif [[ "$PACKAGE_MANAGER" == "dnf" ]]; then
+  echo "  sudo dnf install -y certbot python3-certbot-nginx"
+else
+  echo "  sudo apt-get install -y certbot python3-certbot-nginx"
+fi
 echo "  sudo certbot --nginx -d $DOMAIN"
