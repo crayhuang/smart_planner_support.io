@@ -65,9 +65,7 @@
 
 ### 方式 4：自己的服务器
 
-1. 上传文件到服务器
-2. 确保可以通过 HTTPS 访问
-3. 配置正确的 MIME 类型
+使用 Nginx、HTTPS 和仓库内置的 `rsync` 部署脚本。完整步骤见 [DEPLOYMENT.md](DEPLOYMENT.md)。
 
 **App Store 配置：**
 - Support URL: `https://yourdomain.com/support.html`
