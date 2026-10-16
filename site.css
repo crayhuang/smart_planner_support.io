@@ -63,7 +63,7 @@ nav a {
   font-weight: 600;
   font-size: 14px;
 }
-nav a:hover { background: var(--muted); }
+nav a:hover, nav a:focus-visible { background: var(--muted); color: var(--ink); }
 nav .language { background: var(--ink); color: white; }
 
 .hero {
