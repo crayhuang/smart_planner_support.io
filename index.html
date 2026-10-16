@@ -1,153 +1,202 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Smart Planner turns natural language into Apple Calendar events and Reminders, with daily summaries and widgets.">
-  <meta name="theme-color" content="#fffaf0">
-  <title>Smart Planner - Plan naturally</title>
-  <link rel="icon" href="app-icon.jpg">
-  <link rel="stylesheet" href="site.css">
-</head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="index.html">
-      <img src="app-icon.jpg" alt="" width="42" height="42">
-      <span>Smart Planner</span>
-    </a>
-    <nav aria-label="Primary navigation">
-      <a href="#features">Features</a>
-      <a href="support.html">Support</a>
-      <a href="privacy-policy.html">Privacy</a>
-      <a class="language" href="index-zh.html">简体中文</a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Smart Planner turns natural language into Apple Calendar events and Reminders, with daily summaries and widgets.">
+    <meta name="theme-color" content="#fffaf0">
+    <title>Smart Planner - AI plans and todos, 3 free parses per month</title>
+    <link rel="icon" href="app-icon.jpg">
+    <link rel="stylesheet" href="site.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <img src="app-icon.jpg" alt="" width="42" height="42">
+        <span>Smart Planner</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#features">Features</a><a href="#plans">Free &amp; Pro</a>
+        <a href="support.html">Support</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a class="language" href="index-zh.html">简体中文</a>
+      </nav>
+    </header>
 
-  <main>
-    <section class="hero shell">
-      <div class="hero-copy reveal">
-        <div class="eyebrow"><span class="status-dot"></span>Smart Planner 3.2 for iOS</div>
-        <h1>Say it once.<br><span>See your day take shape.</span></h1>
-        <p class="lead">Turn everyday language into calendar events and reminders. Keep everything in sync with Apple Calendar and Reminders, then review your day with AI summaries.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="https://apps.apple.com/cn/app/ai-smart-planner/id6759102318" target="_blank" rel="noopener noreferrer">View on the App Store</a>
-          <a class="button secondary" href="#how-it-works">See how it works</a>
+    <main id="main">
+      <section class="hero shell">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="status-dot"></span>Smart Planner 3.2 for iOS</div>
+          <h1>Say it.<br><span>Plan it.</span></h1>
+          <p class="lead">Type or speak your plans. Review AI-generated events and todos, then save to Apple Calendar and Reminders. See your schedule, unscheduled tasks and daily summaries in one place.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://apps.apple.com/cn/app/ai-smart-planner/id6759102318" target="_blank" rel="noopener noreferrer">View on the App Store</a>
+            <a class="button secondary" href="#how-it-works">See how it works</a>
+          </div>
+          <p class="free-note">Free: 3 AI parses per calendar month · Resets on the 1st<br>Requires iOS / iPadOS 17.0 or later</p>
+          <div class="trust-row">
+            <span>Apple Calendar</span>
+            <span>Apple Reminders</span>
+            <span>Widgets</span>
+            <span>English &amp; Chinese</span>
+          </div>
         </div>
-        <div class="trust-row">
-          <span>Apple Calendar</span>
-          <span>Apple Reminders</span>
-          <span>Widgets</span>
-          <span>iCloud</span>
-        </div>
-      </div>
 
-      <div class="phone-stage reveal delay-1" aria-label="Smart Planner example">
-        <div class="float-note note-one">Flagged tasks first</div>
-        <div class="float-note note-two">Synced with Apple</div>
-        <div class="phone">
-          <div class="phone-top"><span>9:41</span><span>● ● ●</span></div>
-          <div class="app-bar">
-            <div>
-              <small>Tuesday, June 9</small>
-              <strong>Good morning</strong>
+        <figure class="phone-stage reveal delay-1">
+          <div class="device"><img src="assets/screenshots/en-US-01.webp" alt="Assistant event and todo drafts with dates and times to review before saving" width="720" height="1564" fetchpriority="high" decoding="async">
+          </div>
+          <figcaption>Actual app interface · Sample data</figcaption>
+        </figure>
+      </section>
+
+      <section class="section shell" id="features">
+        <div class="section-heading compact"><span class="kicker">Meet your everyday planner</span>
+          <h2>Less juggling.<br>More living.</h2>
+          <p class="section-intro">Capture ideas in Assistant, see your day in Plan, and manage preferences in Mine.</p>
+        </div>
+        <div class="showcase-grid">
+          <article class="showcase-card blue">
+            <div class="showcase-copy"><span class="kicker">01</span>
+              <h3>Your day, at a glance.</h3>
+              <p>Browse your timeline, all-day events and unscheduled todos by date in Plan.</p>
             </div>
-            <img src="app-icon.jpg" alt="" width="38" height="38">
-          </div>
-          <div class="prompt-card">
-            <span class="prompt-label">Plan with one sentence</span>
-            <p>Team sync tomorrow at 10, submit the report by 5 and remind me to call Mom tonight.</p>
-            <span class="send">→</span>
-          </div>
-          <div class="mini-heading"><strong>Today</strong><span>3 items</span></div>
-          <div class="agenda-card blue">
-            <span class="time">10:00</span>
-            <div><strong>Team sync</strong><small>Work · Calendar</small></div>
-          </div>
-          <div class="agenda-card yellow">
-            <span class="check"></span>
-            <div><strong>Submit the report</strong><small>High priority · Reminders</small></div>
-          </div>
-          <div class="agenda-card green">
-            <span class="check"></span>
-            <div><strong>Call Mom</strong><small>Tonight · Reminders</small></div>
-          </div>
+            <div class="device"><img src="assets/screenshots/en-US-02.webp" alt="Plan timeline and unscheduled todos" width="720" height="1564" loading="lazy" decoding="async">
+            </div>
+          </article>
+          <article class="showcase-card yellow">
+            <div class="showcase-copy"><span class="kicker">02</span>
+              <h3>Find time for what matters.</h3>
+              <p>Let AI suggest a time, then review it. Set dates and times separately, or keep a todo undated.</p>
+            </div>
+            <div class="device"><img src="assets/screenshots/en-US-03.webp" alt="Todo draft with separate date and time controls" width="720" height="1564" loading="lazy" decoding="async">
+            </div>
+          </article>
+          <article class="showcase-card green">
+            <div class="showcase-copy"><span class="kicker">03</span>
+              <h3>Speak your plans into place.</h3>
+              <p>Turn speech into text, review or edit it, then send when you are ready.</p>
+            </div>
+            <div class="device"><img src="assets/screenshots/en-US-04.webp" alt="Voice transcript ready to review before sending" width="720" height="1564" loading="lazy" decoding="async">
+            </div>
+          </article>
+          <article class="showcase-card pink">
+            <div class="showcase-copy"><span class="kicker">04</span>
+              <h3>Fits right into your day.</h3>
+              <p>Choose a calendar or reminder list before saving. Keep managing items in Smart Planner or Apple’s apps.</p>
+            </div>
+            <div class="device"><img src="assets/screenshots/en-US-05.webp" alt="Reminder list selection before saving a todo" width="720" height="1564" loading="lazy" decoding="async">
+            </div>
+          </article>
         </div>
-      </div>
-    </section>
+        <p class="asset-note">Actual app interfaces with fictional sample schedules. The voice example shows the transcript review state.</p>
+      </section>
 
-    <section class="ticker" aria-label="Key benefits">
-      <div>Natural language planning · Two-way Apple sync · Events, todos and summaries · Home Screen widgets · Unscheduled and overdue inbox · </div>
-    </section>
+      <section class="section shell themes" id="themes">
+        <div class="section-heading compact"><span class="kicker">Your plans. Your style.</span>
+          <h2>Two themes.<br>Make it yours.</h2>
+          <p class="section-intro">The same plan, a different mood. Paper Pop and Soft Aura each support light and dark appearances.</p>
+        </div>
+        <div class="theme-grid">
+          <figure>
+            <figcaption>Paper Pop · Light</figcaption>
+            <div class="device"><img src="assets/screenshots/en-US-paper_pop-light.webp" alt="Paper Pop · Light Plan view" width="720" height="1564" loading="lazy" decoding="async">
+            </div>
+          </figure>
+          <figure>
+            <figcaption>Soft Aura · Light</figcaption>
+            <div class="device"><img src="assets/screenshots/en-US-soft_aura-light.webp" alt="Soft Aura · Light Plan view" width="720" height="1564" loading="lazy" decoding="async">
+            </div>
+          </figure>
+          <figure>
+            <figcaption>Paper Pop · Dark</figcaption>
+            <div class="device"><img src="assets/screenshots/en-US-paper_pop-dark.webp" alt="Paper Pop · Dark Plan view" width="720" height="1564" loading="lazy" decoding="async">
+            </div>
+          </figure>
+          <figure>
+            <figcaption>Soft Aura · Dark</figcaption>
+            <div class="device"><img src="assets/screenshots/en-US-soft_aura-dark.webp" alt="Soft Aura · Dark Plan view" width="720" height="1564" loading="lazy" decoding="async">
+            </div>
+          </figure>
+        </div>
+      </section>
 
-    <section class="section shell" id="features">
-      <div class="section-heading">
-        <span class="kicker">One place for the whole day</span>
-        <h2>Less arranging.<br>More doing.</h2>
-      </div>
-      <div class="feature-grid">
-        <article class="feature-card pink">
-          <span class="number">01</span>
-          <div class="feature-icon">✦</div>
-          <h3>Plan in natural language</h3>
-          <p>Write the way you think. Smart Planner separates events from todos and understands dates, times, locations and priorities.</p>
-        </article>
-        <article class="feature-card blue">
-          <span class="number">02</span>
-          <div class="feature-icon">↔</div>
-          <h3>Two-way Apple sync</h3>
-          <p>View, create, edit, complete, reschedule and delete items while changes stay connected to Apple Calendar and Reminders.</p>
-        </article>
-        <article class="feature-card yellow">
-          <span class="number">03</span>
-          <div class="feature-icon">▦</div>
-          <h3>A calendar that explains your day</h3>
-          <p>Browse events, todos and summaries by date. Filter calendar lists and keep priority or flagged work near the top.</p>
-        </article>
-        <article class="feature-card green">
-          <span class="number">04</span>
-          <div class="feature-icon">⌂</div>
-          <h3>Your day on the Home Screen</h3>
-          <p>Widgets surface today's agenda and latest summary in English or Simplified Chinese without opening the app.</p>
-        </article>
-      </div>
-    </section>
+      <section class="section shell plans" id="plans">
+        <div class="section-heading compact"><span class="kicker">Start free. Upgrade when you need.</span>
+          <h2>A little help, or a lot.</h2>
+          <p class="section-intro">Try natural-language creation, then choose the AI parsing allowance that fits your day.</p>
+        </div>
+        <div class="plan-grid">
+          <article class="plan-card"><span class="kicker">Free</span>
+            <h3><strong>3</strong> per month</h3>
+            <p>AI parses · Per calendar month</p>
+            <ul>
+              <li>Free allowance resets on the 1st</li>
+              <li>Apple Calendar and Reminders integration</li>
+              <li>Paper Pop and Soft Aura, English and Chinese</li>
+            </ul><a class="button secondary" href="https://apps.apple.com/cn/app/ai-smart-planner/id6759102318">Download and try free</a>
+          </article>
+          <article class="plan-card pro"><span class="kicker">Pro</span>
+            <h3>Unlimited</h3>
+            <p>AI parses · Monthly / Yearly / Lifetime</p>
+            <ul>
+              <li>Unlimited parsing on every Pro plan</li>
+              <li>Choose a plan that fits how you use the app</li>
+              <li>See the app for current prices and availability</li>
+            </ul><a class="button primary" href="support.html#subscription">Subscriptions and restoring purchases</a>
+          </article>
+        </div>
+        <div class="quota-note"><strong>Already using Free?</strong>
+          <p>Updating preserves this month’s usage. If you have used 3 or more parses, your remaining allowance is 0. Your free allowance resets next calendar month, or you can upgrade to Pro for unlimited parsing.</p>
+        </div>
+      </section>
 
-    <section class="section shell workflow" id="how-it-works">
-      <div class="section-heading compact">
-        <span class="kicker">From thought to schedule</span>
-        <h2>Three small steps.</h2>
-      </div>
-      <div class="steps">
-        <article><span>1</span><h3>Write</h3><p>Enter one sentence with everything on your mind.</p></article>
-        <article><span>2</span><h3>Review</h3><p>Check the recognized events, todos, dates and lists.</p></article>
-        <article><span>3</span><h3>Stay synced</h3><p>Manage the result in Smart Planner or Apple's apps.</p></article>
-      </div>
-    </section>
+      <section class="section shell workflow" id="how-it-works">
+        <div class="section-heading compact">
+          <span class="kicker">From thought to schedule</span>
+          <h2>Three small steps.</h2>
+        </div>
+        <div class="steps">
+          <article><span>1</span>
+            <h3>Write</h3>
+            <p>Type or dictate your events and todos, then review your words.</p>
+          </article>
+          <article><span>2</span>
+            <h3>Review</h3>
+            <p>Check the recognized events, todos, dates and lists.</p>
+          </article>
+          <article><span>3</span>
+            <h3>Stay synced</h3>
+            <p>Manage the result in Smart Planner or Apple's apps.</p>
+          </article>
+        </div>
+      </section>
 
-    <section class="section shell privacy-callout">
+      <section class="section shell privacy-callout">
+        <div>
+          <span class="kicker">Built with clear boundaries</span>
+          <h2>Your schedule stays under your control.</h2>
+        </div>
+        <div>
+          <p>Calendar and reminder access is used to provide the features you choose. AI requests send only the input and relevant schedule context required for the requested planning or summary operation.</p>
+          <a class="text-link" href="privacy-policy.html">Read the privacy policy →</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
       <div>
-        <span class="kicker">Built with clear boundaries</span>
-        <h2>Your schedule stays under your control.</h2>
+        <strong>Smart Planner</strong>
+        <p>Natural planning for busy days.</p>
       </div>
-      <div>
-        <p>Calendar and reminder access is used to provide the features you choose. AI requests send only the input and relevant schedule context required for the requested planning or summary operation.</p>
-        <a class="text-link" href="privacy-policy.html">Read the privacy policy →</a>
+      <div class="footer-links">
+        <a href="support.html">Support</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="mailto:cray.huang@gmail.com">Contact</a>
+        <a href="index-zh.html">简体中文</a>
       </div>
-    </section>
-  </main>
-
-  <footer class="site-footer shell">
-    <div>
-      <strong>Smart Planner</strong>
-      <p>Natural planning for busy days.</p>
-    </div>
-    <div class="footer-links">
-      <a href="support.html">Support</a>
-      <a href="privacy-policy.html">Privacy</a>
-      <a href="mailto:cray.huang@gmail.com">Contact</a>
-      <a href="index-zh.html">简体中文</a>
-    </div>
-    <p class="copyright">© 2026 Cray Huang · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备2020105994号</a></p>
-  </footer>
-</body>
+      <p class="copyright">© 2026 Cray Huang · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备2020105994号</a>
+      </p>
+    </footer>
+  </body>
 </html>

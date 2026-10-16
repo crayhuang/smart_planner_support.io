@@ -14,7 +14,7 @@
 <body>
   <header class="site-header">
     <a class="brand" href="index-zh.html"><img src="app-icon.jpg" alt="" width="42" height="42"><span>Smart Planner</span></a>
-    <nav><a href="index-zh.html">首页</a><a href="privacy-policy-zh.html">隐私</a><a class="language" href="support.html">English</a></nav>
+    <nav aria-label="主导航"><a href="index-zh.html">首页</a><a href="privacy-policy-zh.html">隐私</a><a class="language" href="support.html">English</a></nav>
   </header>
   <main class="support-main shell">
     <section class="support-hero">
@@ -29,7 +29,7 @@
           <li>首次使用时授予日历和提醒事项完整访问权限。</li>
           <li>用自然语言输入事件或待办。</li>
           <li>确认识别出的日期、时间、日历或提醒事项清单。</li>
-          <li>保存后可在 Calendar 页面或苹果原生 App 中继续管理。</li>
+          <li>保存后可在“计划”或苹果原生 App 中继续管理。</li>
         </ol>
       </section>
       <section class="support-card">
@@ -39,15 +39,20 @@
           <li>与苹果日历及提醒事项双向同步</li>
           <li>未安排和逾期待办管理</li>
           <li>今日日程与每日总结小组件</li>
-          <li>简体中文和英文界面</li>
+          <li>简体中文和英文界面，纸质与柔光两种主题</li><li>语音转文字，检查后再发送</li><li>iOS / iPadOS 17.0 或更高版本</li>
         </ul>
       </section>
       <section class="support-card wide">
         <h2>常见问题</h2>
+        <div class="faq" id="subscription"><strong>免费版与 Pro 的解析额度是多少？</strong><p>免费版每个自然月有 3 次 AI 解析，每月 1 日重置。Pro 月订阅、年订阅和终身版均不限解析次数。价格和可用方案以 App 内显示为准。</p></div>
+        <div class="faq"><strong>更新后，本月已用次数会清零吗？</strong><p>不会。本月已用次数会保留，已使用 3 次或以上时，剩余额度为 0。下个自然月恢复免费额度，或升级 Pro 使用无限解析。</p></div>
+        <div class="faq"><strong>如何恢复购买？</strong><p>在“我的”→“订阅”页面点击“恢复购买”，并使用原购买时的 Apple 账户。</p></div>
+        <div class="faq"><strong>如何设置待办日期与时间？</strong><p>日期与时间分别设置。关闭“设置时间”可保留日期；关闭“设置日期”会同时取消具体时间和重复设置。无日期待办显示在“未安排”中，逾期待办重新安排时需保留日期。</p></div>
+        <div class="faq"><strong>日历清单选择会保存吗？</strong><p>选择会保存在本机，正常更新不会重置。Pro 用户开启 App 的 iCloud 同步后，可在同一 Apple 账户的设备间异步同步能唯一匹配的清单；本地日历或无法区分的同名清单需逐台设置。</p></div>
         <div class="faq"><strong>为什么需要日历和提醒事项完整访问权限？</strong><p>Smart Planner 会显示和管理已有事件与任务。读取、创建、编辑、完成、删除及同步这些内容都需要完整访问权限。</p></div>
         <div class="faq"><strong>第一次误点了不允许，如何重新授权？</strong><p>打开 iPhone 设置，找到 Smart Planner，为日历和提醒事项开启完整访问。返回 App 后，如果状态没有立即变化，请重新进入权限区域。</p></div>
         <div class="faq"><strong>为什么小组件没有立刻更新？</strong><p>Smart Planner 会在内容变化后请求刷新，但最终更新时间由 iOS 控制。请打开一次 App，并确认日历和提醒事项权限仍然有效。</p></div>
-        <div class="faq"><strong>“未安排”是什么？</strong><p>指没有设置截止日期且尚未完成的提醒事项。可从 Calendar 页面进入，为它们设置日期、编辑或删除。</p></div>
+        <div class="faq"><strong>“未安排”是什么？</strong><p>指没有设置截止日期且尚未完成的提醒事项。可从“计划”页面进入，为它们设置日期、编辑或删除。</p></div>
         <div class="faq"><strong>如何管理订阅？</strong><p>在 Smart Planner 的“我的”→“订阅”中管理，或打开 iPhone 设置 → Apple 账户 → 订阅。</p></div>
         <div class="faq"><strong>AI 会如何使用我的数据？</strong><p>AI 请求可能会发送你的输入，以及完成当前规划或总结所需的相关日程上下文。详情请查看<a href="privacy-policy-zh.html">隐私政策</a>。</p></div>
       </section>
@@ -56,7 +61,7 @@
         <h3>事件或待办没有显示</h3>
         <ul><li>检查日历和提醒事项权限。</li><li>打开日历清单选择，启用需要显示的清单。</li><li>下拉刷新或点击刷新按钮。</li></ul>
         <h3>AI 解析失败</h3>
-        <ul><li>检查网络连接。</li><li>尝试使用更短、更明确的句子。</li><li>检查本月额度或订阅状态。</li></ul>
+        <ul><li>检查网络连接。</li><li>尝试使用更短、更明确的句子。</li><li>检查本月额度或订阅状态（免费版每个自然月 3 次 AI 解析，每月 1 日重置）。</li></ul>
       </section>
       <section class="support-card contact-card">
         <h2>联系支持</h2>
